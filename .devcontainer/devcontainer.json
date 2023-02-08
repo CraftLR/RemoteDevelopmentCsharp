@@ -17,6 +17,7 @@
             }
         },
         "terminal.integrated.defaultProfile.linux": "zsh",
+        "editor.minimap.enabled": false,
         "files.associations": {
             "*.csproj": "msbuild",
             "*.fsproj": "msbuild",
@@ -52,14 +53,39 @@
     },
     // Features to add to the dev container. More info: https://containers.dev/features.
     "features": {
-      "ghcr.io/devcontainers/features/sshd:1": {
-        "version": "latest"
-      }
+        "ghcr.io/devcontainers/features/sshd:1": {
+            "version": "latest"
+        },
+        "ghcr.io/devcontainers/features/desktop-lite:1": {
+            "password": "vscode",
+            "webPort": "6080",
+            "vncPort": "5901"
+        },
+        "ghcr.io/devcontainers/features/python:1": {},
+        "ghcr.io/devcontainers/features/java:1": {
+            "version": "latest"
+        },
+        "ghcr.io/meaningful-ooo/devcontainer-features/homebrew:2": {},
+        // Install common utilities
+        "ghcr.io/devcontainers/features/common-utils:1": {
+            "installZsh": true,
+            "installOhMyZsh": true,
+            "upgradePackages": true,
+            "username": "vscode",
+            "uid": "1000",
+            "gid": "1000"
+        }
     },
     // Use 'forwardPorts' to make a list of ports inside the container available locally.
-    // "forwardPorts": [5000, 5001],
+    "forwardPorts": [
+        6080,
+        5901
+    ],
+    "postCreateCommand": {
+        "post-create-script": "/usr/bin/zsh ./.devcontainer/post-create.sh"
+    },
     // Use 'postCreateCommand' to run commands after the container is created.
-    "postCreateCommand": "dotnet restore",
+    "postStartCommand": "dotnet restore",
     // Configure tool-specific properties.
     "customizations": {
         // Configure properties specific to VS Code.
@@ -76,7 +102,9 @@
 				"dotjoshjohnson.xml",
 				"editorconfig.editorconfig",
 				"leo-labs.dotnet",
-				"fernandoescolar.vscode-solution-explorer"
+				"fernandoescolar.vscode-solution-explorer",
+				"SonarSource.sonarlint-vscode",
+				"jebbs.plantuml"
 			]
         }
     },
