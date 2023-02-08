@@ -9,65 +9,17 @@
             "NODE_VERSION": "none"
         }
     },
-    // Set *default* container specific settings.json values on container create.
-    "settings": {
-        "terminal.integrated.profiles.linux": {
-            "zsh": {
-                "path": "zsh"
-            }
-        },
-        "terminal.integrated.defaultProfile.linux": "zsh",
-        "editor.minimap.enabled": false,
-        "files.associations": {
-            "*.csproj": "msbuild",
-            "*.fsproj": "msbuild",
-            "*.globalconfig": "ini",
-            "*.manifest": "xml",
-            "*.nuspec": "xml",
-            "*.pkgdef": "ini",
-            "*.projitems": "msbuild",
-            "*.props": "msbuild",
-            "*.resx": "xml",
-            "*.rsp": "Powershell",
-            "*.ruleset": "xml",
-            "*.settings": "xml",
-            "*.shproj": "msbuild",
-            "*.slnf": "json",
-            "*.targets": "msbuild",
-            "*.vbproj": "msbuild",
-            "*.vsixmanifest": "xml",
-            "*.vstemplate": "xml",
-            "*.xlf": "xml"
-        },
-        "editor.formatOnSave": true,
-        "editor.formatOnType": true,
-        "omnisharp.path": "latest",
-        "omnisharp.defaultLaunchSolution": "CraftLR.sln",
-        "omnisharp.disableMSBuildDiagnosticWarning": true,
-        "omnisharp.useModernNet": true,
-        "omnisharp.enableAsyncCompletion": true,
-        "omnisharp.enableEditorConfigSupport": true,
-        "omnisharp.enableImportCompletion": true,
-        "omnisharp.enableRoslynAnalyzers": true,
-        "omnisharp.organizeImportsOnFormat": true
-    },
     // Features to add to the dev container. More info: https://containers.dev/features.
     "features": {
         "ghcr.io/devcontainers/features/sshd:1": {
             "version": "latest"
         },
-        "ghcr.io/devcontainers/features/desktop-lite:1": {
-            "password": "vscode",
-            "webPort": "6080",
-            "vncPort": "5901"
-        },
         "ghcr.io/devcontainers/features/python:1": {},
         "ghcr.io/devcontainers/features/java:1": {
             "version": "latest"
         },
-        "ghcr.io/meaningful-ooo/devcontainer-features/homebrew:2": {},
         // Install common utilities
-        "ghcr.io/devcontainers/features/common-utils:1": {
+        "ghcr.io/devcontainers/features/common-utils:2": {
             "installZsh": true,
             "installOhMyZsh": true,
             "upgradePackages": true,
@@ -76,11 +28,6 @@
             "gid": "1000"
         }
     },
-    // Use 'forwardPorts' to make a list of ports inside the container available locally.
-    "forwardPorts": [
-        6080,
-        5901
-    ],
     "postCreateCommand": {
         "post-create-script": "/usr/bin/zsh ./.devcontainer/post-create.sh"
     },
@@ -90,22 +37,63 @@
     "customizations": {
         // Configure properties specific to VS Code.
         "vscode": {
+            "settings": {
+                "terminal.integrated.profiles.linux": {
+                    "zsh": {
+                        "path": "zsh"
+                    }
+                },
+                "terminal.integrated.defaultProfile.linux": "zsh",
+                "editor.minimap.enabled": false,
+                "files.associations": {
+                    "*.csproj": "msbuild",
+                    "*.fsproj": "msbuild",
+                    "*.globalconfig": "ini",
+                    "*.manifest": "xml",
+                    "*.nuspec": "xml",
+                    "*.pkgdef": "ini",
+                    "*.projitems": "msbuild",
+                    "*.props": "msbuild",
+                    "*.resx": "xml",
+                    "*.rsp": "Powershell",
+                    "*.ruleset": "xml",
+                    "*.settings": "xml",
+                    "*.shproj": "msbuild",
+                    "*.slnf": "json",
+                    "*.targets": "msbuild",
+                    "*.vbproj": "msbuild",
+                    "*.vsixmanifest": "xml",
+                    "*.vstemplate": "xml",
+                    "*.xlf": "xml"
+                },
+                "editor.formatOnSave": true,
+                "editor.formatOnType": true,
+                "omnisharp.path": "latest",
+                "omnisharp.defaultLaunchSolution": "CraftLR.sln",
+                "omnisharp.disableMSBuildDiagnosticWarning": true,
+                "omnisharp.useModernNet": true,
+                "omnisharp.enableAsyncCompletion": true,
+                "omnisharp.enableEditorConfigSupport": true,
+                "omnisharp.enableImportCompletion": true,
+                "omnisharp.enableRoslynAnalyzers": true,
+                "omnisharp.organizeImportsOnFormat": true
+            },
             // Add the IDs of extensions you want installed when the container is created.
             "extensions": [
-				"ms-dotnettools.csharp",
-				"tintoy.msbuild-project-tools",
-				"formulahendry.dotnet-test-explorer",
-				"nikiforovall.surround-with-csharp",
-				"mhutchie.git-graph",
-				"codezombiech.gitignore",
-				"yzhang.markdown-all-in-one",
-				"dotjoshjohnson.xml",
-				"editorconfig.editorconfig",
-				"leo-labs.dotnet",
-				"fernandoescolar.vscode-solution-explorer",
-				"SonarSource.sonarlint-vscode",
-				"jebbs.plantuml"
-			]
+                "ms-dotnettools.csharp",
+                "tintoy.msbuild-project-tools",
+                "formulahendry.dotnet-test-explorer",
+                "nikiforovall.surround-with-csharp",
+                "mhutchie.git-graph",
+                "codezombiech.gitignore",
+                "yzhang.markdown-all-in-one",
+                "dotjoshjohnson.xml",
+                "editorconfig.editorconfig",
+                "leo-labs.dotnet",
+                "fernandoescolar.vscode-solution-explorer",
+                "SonarSource.sonarlint-vscode",
+                "jebbs.plantuml"
+            ]
         }
     },
     "remoteUser": "vscode"
